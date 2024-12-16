@@ -1,0 +1,54 @@
+
+<div class="stopwatch">
+    <h1>no more drugs manifest</h1>
+    <h2>53&deg14'51" N 6&deg6'46" W</h2>
+    <div class="time" id="time">0 Days 0 Hours 0 Minutes 0 Seconds</div>
+</div>
+
+<style>
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        font-family: Garamond, sans-serif;
+        background-image: url('IMG_1845.JPEG');
+        color: black;
+    }
+
+    .stopwatch {
+        text-align: center;
+    }
+
+    h1 {
+        font-size: 2.5rem;
+        margin-bottom: 20px;
+    }
+    h2 {
+        font-size: 1.5rem;
+        margin-bottom: 10px;
+    }
+
+    .time {
+        font-size: 2rem;
+        font-weight: bold;
+    }
+</style>
+
+<script>
+    function updateStopwatch() {
+        const startTime = new Date("2024-12-16T17:24:00"); // Adjust the start time here
+        const now = new Date();
+        const elapsed = now - startTime;
+
+        const days = Math.floor(elapsed / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((elapsed % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((elapsed % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((elapsed % (1000 * 60)) / 1000);
+
+        document.getElementById('time').textContent = `${days} Days ${hours} Hours ${minutes} Minutes ${seconds} Seconds`;
+    }
+
+    setInterval(updateStopwatch, 1000);
+</script>
